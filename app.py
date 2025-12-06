@@ -81,7 +81,7 @@ def test():
 
 @app.route("/proxy/iperf3-csv")
 def proxy_csv():
-    url = "https://export.iperf3serverlist.net/maddydev-glitch.csv"
+    url = "https://raw.githubusercontent.com/ropelletier/iperf3-webui/refs/heads/main/servers.csv"
     resp = requests.get(url)
     return Response(resp.content, content_type="text/csv")
 
@@ -307,3 +307,4 @@ def iperf_version():
 if __name__ == "__main__":
     debug_mode = os.environ.get("FLASK_DEBUG", "false").lower() in ["true", "1", "t"]
     app.run(host="0.0.0.0", port=5000, debug=debug_mode)
+
